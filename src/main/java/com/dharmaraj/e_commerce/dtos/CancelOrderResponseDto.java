@@ -1,7 +1,6 @@
 package com.dharmaraj.e_commerce.dtos;
 
 import com.dharmaraj.e_commerce.models.Order;
-import com.example.ecom.models.Order;
 import lombok.Data;
 
 @Data

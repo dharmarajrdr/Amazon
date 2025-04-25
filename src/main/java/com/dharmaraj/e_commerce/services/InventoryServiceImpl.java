@@ -82,4 +82,12 @@ public class InventoryServiceImpl implements InventoryService {
         }
     }
 
+    @Override
+    public void updateInventory(Product product, int quantity) throws ProductNotFoundException {
+
+        Inventory inventory = inventoryRepository.findByProduct(product).orElseThrow(() -> new ProductNotFoundException("Product not found"));
+        inventory.setQuantity(inventory.getQuantity() + quantity);
+        inventoryRepository.save(inventory);
+    }
+
 }

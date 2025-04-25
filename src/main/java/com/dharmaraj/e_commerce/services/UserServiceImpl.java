@@ -2,6 +2,7 @@ package com.dharmaraj.e_commerce.services;
 
 import java.util.Optional;
 
+import com.dharmaraj.e_commerce.custom_exceptions.UserNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -56,6 +57,11 @@ public class UserServiceImpl implements UserService {
     private boolean isCorrectPassword(String rawPassword, String hashedPassword) {
 
         return BCrypt.checkpw(rawPassword, hashedPassword); // Using BCrypt for secure password comparison
+    }
+
+    public User getUser(int userId) throws UserNotFoundException {
+
+        return userRepository.findById(userId).orElseThrow(() -> new UserNotFoundException("User with user id " + userId + " does not exist."));
     }
 
 }

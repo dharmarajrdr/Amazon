@@ -10,6 +10,8 @@ import lombok.EqualsAndHashCode;
 public class Product extends BaseModel{
     
     private String name;
+
     private String description;
+
     private double price;
 }

@@ -1,17 +1,20 @@
 package com.dharmaraj.e_commerce.models;
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.ManyToOne;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 @Data
-@EqualsAndHashCode(callSuper = false)
+@EqualsAndHashCode(callSuper=false)
 @Entity
-public class Inventory extends BaseModel {
-
-    @OneToOne
+public class OrderDetail extends BaseModel {
+    
+    @ManyToOne
+    private Order order;
+    
+    @ManyToOne
     private Product product;
-
+    
     private int quantity;
 }

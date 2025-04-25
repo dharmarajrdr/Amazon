@@ -2,6 +2,7 @@ package com.dharmaraj.e_commerce.repositories;
 
 import java.util.Optional;
 
+import com.dharmaraj.e_commerce.models.Product;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -12,4 +13,5 @@ public interface InventoryRepository extends JpaRepository<Inventory, Integer> {
 
     public Optional<Inventory> findInventoryByProductId(int productId);
     public Inventory save(Inventory inventory);
+    public Optional<Inventory> findByProduct(Product product);
 }

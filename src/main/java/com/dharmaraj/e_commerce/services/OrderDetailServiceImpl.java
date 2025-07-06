@@ -5,19 +5,16 @@ import java.util.List;
 import com.dharmaraj.e_commerce.custom_exceptions.ProductNotFoundException;
 import com.dharmaraj.e_commerce.models.OrderDetail;
 import com.dharmaraj.e_commerce.models.Product;
-import com.dharmaraj.e_commerce.repositories.OrderDetailRepository;
+
+import lombok.AllArgsConstructor;
+
 import org.springframework.stereotype.Service;
 
 @Service
+@AllArgsConstructor
 public class OrderDetailServiceImpl implements OrderDetailService {
 
-    private OrderDetailRepository orderDetailRepository;
-    private InventoryService inventoryService;
-
-    public OrderDetailServiceImpl(OrderDetailRepository orderDetailRepository, InventoryService inventoryService) {
-        this.inventoryService = inventoryService;
-        this.orderDetailRepository = orderDetailRepository;
-    }
+    private final InventoryService inventoryService;
 
     public void cancelOrder(OrderDetail orderDetail) throws ProductNotFoundException {
 

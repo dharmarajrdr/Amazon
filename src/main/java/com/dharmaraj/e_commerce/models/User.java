@@ -7,6 +7,8 @@ import lombok.EqualsAndHashCode;
 
 import java.util.List;
 
+import org.springframework.context.annotation.Lazy;
+
 @Data
 @EqualsAndHashCode(callSuper=false)
 @Entity(name = "users")
@@ -22,4 +24,8 @@ public class User extends BaseModel{
 
     @OneToMany
     private List<Order> orders;
+
+    @OneToMany
+    @Lazy
+    private List<Preference> preferences;
 }
